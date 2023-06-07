@@ -9,11 +9,13 @@ import {
   headTextAnimation,
   slideAnimation
 } from '../config/motion';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const Home = () => {
   const snap = useSnapshot(state);
 
   return (
+<ErrorBoundary message='Home'>
     <AnimatePresence>
       {snap.intro && (
         <motion.section className="home" {...slideAnimation('left')}>
@@ -50,6 +52,7 @@ const Home = () => {
         </motion.section>
       )}
     </AnimatePresence>
+    </ErrorBoundary>
   )
 }
 

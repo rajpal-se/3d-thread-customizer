@@ -4,6 +4,7 @@ import { easing } from 'maath';
 import { useSnapshot } from 'valtio';
 
 import state from '../store';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const CameraRig = ({ children }) => {
   const group = useRef();
@@ -36,7 +37,10 @@ const CameraRig = ({ children }) => {
   })
 
 
-  return <group ref={group}>{children}</group>
+  return <ErrorBoundary message='Camera Rig'>
+
+    <group ref={group}>{children}</group>
+  </ErrorBoundary>
 }
 
 export default CameraRig

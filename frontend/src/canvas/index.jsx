@@ -4,9 +4,11 @@ import { Environment, Center } from '@react-three/drei';
 import Shirt from './Shirt';
 import Backdrop from './Backdrop';
 import CameraRig from './CameraRig';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const CanvasModel = () => {
   return (
+    <ErrorBoundary message='Canvas'>
     <Canvas
       shadows
       camera={{ position: [0, 0, 0], fov: 25 }}
@@ -23,6 +25,7 @@ const CanvasModel = () => {
         </Center>
       </CameraRig>
     </Canvas>
+    </ErrorBoundary>
   )
 }
 

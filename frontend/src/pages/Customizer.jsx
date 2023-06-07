@@ -9,6 +9,7 @@ import { downloadCanvasToImage, reader } from '../config/helpers';
 import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../components';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const Customizer = () => {
   const snap = useSnapshot(state);
@@ -117,6 +118,7 @@ const Customizer = () => {
   }
 
   return (
+    <ErrorBoundary message='Customizer'>
     <AnimatePresence>
       {!snap.intro && (
         <>
@@ -169,6 +171,7 @@ const Customizer = () => {
         </>
       )}
     </AnimatePresence>
+    </ErrorBoundary>
   )
 }
 
