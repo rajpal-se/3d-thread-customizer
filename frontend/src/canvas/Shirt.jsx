@@ -1,29 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { easing } from "maath";
-import { useSnapshot } from "valtio";
-import { useFrame } from "@react-three/fiber";
-import { Decal, useGLTF, useTexture } from "@react-three/drei";
+import React, { useEffect, useState } from "react"
+import { easing } from "maath"
+import { useSnapshot } from "valtio"
+import { useFrame } from "@react-three/fiber"
+import { Decal, useGLTF, useTexture } from "@react-three/drei"
 
-import state from "../store";
-import ErrorBoundary from "../components/ErrorBoundary";
+import state from "../store"
+import ErrorBoundary from "../components/ErrorBoundary"
 
 const Shirt = () => {
-    const snap = useSnapshot(state);
-    const { nodes, materials } = useGLTF("/shirt_baked.glb");
-    const [snapData, setSnapData] = useState(null);
+    const snap = useSnapshot(state)
+    const { nodes, materials } = useGLTF("/shirt_baked.glb")
+    const [snapData, setSnapData] = useState(null)
 
-    const logoTexture = useTexture(snap.logoDecal);
-    const fullTexture = useTexture(snap.fullDecal);
+    const logoTexture = useTexture(snap.logoDecal)
+    const fullTexture = useTexture(snap.fullDecal)
 
     // snap.then((data) => {
     //     console.log(data);
     // });
 
-    useFrame((state, delta) =>
-        easing.dampC(materials.lambert1.color, snap.color, 0.25, delta)
-    );
+    useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta))
 
-    const stateString = JSON.stringify(snap);
+    const stateString = JSON.stringify(snap)
 
     return (
         <ErrorBoundary message="Shirt">
@@ -58,7 +56,7 @@ const Shirt = () => {
                 </mesh>
             </group>
         </ErrorBoundary>
-    );
-};
+    )
+}
 
-export default Shirt;
+export default Shirt
