@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { useSnapshot } from "valtio"
 
@@ -25,25 +25,11 @@ const Customizer = () => {
         stylishShirt: false,
     })
 
-    // show tab content depending on the activeTab
-    const generateTabContent = () => {
-        switch (activeEditorTab) {
-            case "colorpicker":
-                return <ColorPicker />
-            case "filepicker":
-                return <FilePicker file={file} setFile={setFile} readFile={readFile} />
-            case "aipicker":
-                return (
-                    <AIPicker
-                        prompt={prompt}
-                        setPrompt={setPrompt}
-                        generatingImg={generatingImg}
-                        handleSubmit={handleSubmit}
-                    />
-                )
-            default:
-                return null
-        }
+    const readFile = (type) => {
+        reader(file).then((result) => {
+            handleDecals(type, result)
+            setActiveEditorTab("")
+        })
     }
 
     const handleSubmit = async (type) => {
@@ -107,12 +93,26 @@ const Customizer = () => {
         })
     }
 
-    const readFile = (type) => {
-        reader(file).then((result) => {
-            handleDecals(type, result)
-            setActiveEditorTab("")
-        })
-    }
+    // show tab content depending on the activeTab
+    const generateTabContent = useCallback(() => {
+        switch (activeEditorTab) {
+            case "colorpicker":
+                return <ColorPicker />
+            case "filepicker":
+                return <FilePicker file={file} setFile={setFile} readFile={readFile} />
+            case "aipicker":
+                return (
+                    <AIPicker
+                        prompt={prompt}
+                        setPrompt={setPrompt}
+                        generatingImg={generatingImg}
+                        handleSubmit={handleSubmit}
+                    />
+                )
+            default:
+                return null
+        }
+    }, [activeEditorTab, file, setFile, readFile, prompt, setPrompt, generatingImg, handleSubmit])
 
     return (
         <ErrorBoundary message="Customizer">

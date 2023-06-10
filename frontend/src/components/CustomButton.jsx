@@ -4,8 +4,23 @@ import { useSnapshot } from "valtio"
 import state from "../store"
 import { getContrastingColor } from "../config/helpers"
 
-const CustomButton = ({ type, title, customStyles, handleClick }) => {
+const CustomButton = ({
+    type,
+    title,
+    customStyles,
+    handleClick,
+    disabled = false,
+    useDisableStyle = false,
+    style = {},
+}) => {
     const snap = useSnapshot(state)
+
+    const disabledStyle = {
+        color: "gray",
+        backgroundColor: "silver",
+        border: "unset",
+        cursor: "not-allowed",
+    }
 
     const generateStyle = (type) => {
         if (type === "filled") {
@@ -20,13 +35,19 @@ const CustomButton = ({ type, title, customStyles, handleClick }) => {
                 color: snap.color,
             }
         }
+        return {}
     }
 
     return (
         <button
             className={`px-2 py-1.5 flex-1 rounded-md ${customStyles}`}
-            style={generateStyle(type)}
+            style={{
+                ...generateStyle(type),
+                ...(useDisableStyle && disabled ? disabledStyle : {}),
+                ...style,
+            }}
             onClick={handleClick}
+            disabled={disabled}
         >
             {title}
         </button>
