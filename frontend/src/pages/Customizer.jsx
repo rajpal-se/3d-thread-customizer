@@ -49,10 +49,16 @@ const Customizer = () => {
             })
 
             const data = await response.json()
-
-            handleDecals(type, `data:image/png;base64,${data.photo}`)
+            if (!data?.message) {
+                // Check, If no error
+                handleDecals(type, `data:image/png;base64,${data.photo}`)
+            } else {
+                alert("Limit exceeded")
+            }
         } catch (error) {
-            alert(error)
+            console.log("API Error", error)
+            // alert(error?.message)
+            alert("Limit exceeded")
         } finally {
             setGeneratingImg(false)
             setActiveEditorTab("")

@@ -22,6 +22,8 @@ const AIPicker = ({ prompt, setPrompt, generatingImg, handleSubmit }) => {
                             title="AI Logo"
                             handleClick={() => handleSubmit("logo")}
                             customStyles="text-xs"
+                            disabled={!Boolean(prompt)}
+                            useDisableStyle
                         />
 
                         <CustomButton
@@ -29,6 +31,8 @@ const AIPicker = ({ prompt, setPrompt, generatingImg, handleSubmit }) => {
                             title="AI Full"
                             handleClick={() => handleSubmit("full")}
                             customStyles="text-xs"
+                            disabled={!Boolean(prompt)}
+                            useDisableStyle
                         />
                     </>
                 )}
