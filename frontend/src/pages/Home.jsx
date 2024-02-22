@@ -29,14 +29,15 @@ const Home = () => {
                                     className="head-text"
                                     style={{ color: "snow", textShadow: "1px 1px 2px gray" }}
                                 >
-                                    LET'S <br className="xl:block hidden" /> DO IT.
+                                    LET'S <br className="xl:block md:block sm:block hidden" /> DO
+                                    IT.
                                 </h1>
                             </motion.div>
                             <motion.div {...headContentAnimation} className="flex flex-col gap-5">
                                 <p
                                     className="max-w-md font-normal text-gray-600 text-base"
                                     style={{
-                                        color: "#555555",
+                                        color: "#a6a6a6",
                                         letterSpacing: "1px",
                                     }}
                                 >
