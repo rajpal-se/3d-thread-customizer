@@ -1,6 +1,6 @@
 import React from "react"
 
-import CustomButton from "./CustomButton"
+import Button from "./Button"
 
 const AIPicker = ({ prompt, setPrompt, generatingImg, handleSubmit }) => {
     return (
@@ -12,27 +12,23 @@ const AIPicker = ({ prompt, setPrompt, generatingImg, handleSubmit }) => {
                 onChange={(e) => setPrompt(e.target.value)}
                 className="aipicker-textarea"
             />
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center">
                 {generatingImg ? (
-                    <CustomButton type="outline" title="Asking AI..." customStyles="text-xs" />
+                    <Button type="outline" title="Asking AI..." customStyles="text-xs" />
                 ) : (
                     <>
-                        <CustomButton
-                            type="outline"
+                        <Button
                             title="AI Logo"
-                            handleClick={() => handleSubmit("logo")}
-                            customStyles="text-xs"
+                            onClick={() => handleSubmit("logo")}
                             disabled={!Boolean(prompt)}
-                            useDisableStyle
+                            style={{ flexGrow: 1 }}
                         />
 
-                        <CustomButton
-                            type="filled"
+                        <Button
                             title="AI Full"
-                            handleClick={() => handleSubmit("full")}
-                            customStyles="text-xs"
+                            onClick={() => handleSubmit("full")}
                             disabled={!Boolean(prompt)}
-                            useDisableStyle
+                            style={{ flexGrow: 1 }}
                         />
                     </>
                 )}

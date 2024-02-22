@@ -1,9 +1,8 @@
 import React from "react"
 
-import CustomButton from "./CustomButton"
+import Button from "./Button"
 
 const FilePicker = ({ file, setFile, readFile }) => {
-    console.log("zzzzzzzzddzzzzzzz", Boolean(file), file)
     return (
         <div className="filepicker-container">
             <div className="flex-1 flex flex-col p-3">
@@ -23,30 +22,8 @@ const FilePicker = ({ file, setFile, readFile }) => {
             </div>
 
             <div className="p-3 flex flex-wrap gap-3 rounded-md">
-                <CustomButton
-                    type="outline"
-                    title="Logo"
-                    handleClick={() => readFile("logo")}
-                    customStyles="text-xs shadow-lg shadow-black-300/50"
-                    disabled={!Boolean(file)}
-                    useDisableStyle
-                    style={{
-                        color: "#444444",
-                        fontWeight: "bold",
-                    }}
-                />
-                <CustomButton
-                    type="filled"
-                    title="Full"
-                    handleClick={() => readFile("full")}
-                    customStyles="text-xs shadow-lg shadow-black-300/50"
-                    disabled={!Boolean(file)}
-                    useDisableStyle
-                    style={{
-                        color: "#444444",
-                        fontWeight: "bold",
-                    }}
-                />
+                <Button title="Logo" onClick={() => readFile("logo")} disabled={!Boolean(file)} />
+                <Button title="Full" onClick={() => readFile("full")} disabled={!Boolean(file)} />
             </div>
         </div>
     )

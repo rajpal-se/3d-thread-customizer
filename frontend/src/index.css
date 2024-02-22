@@ -44,7 +44,8 @@ html {
 }
 
 .aipicker-container {
-    @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] rounded-md flex flex-col gap-4;
+    @apply absolute left-full ml-3 glassmorphism p-3 w-[220px] h-[220px] rounded-md flex flex-col gap-4;
+    background-color: #ffffff7a;
 }
 
 .aipicker-textarea {
@@ -52,11 +53,14 @@ html {
 }
 
 .filepicker-container {
-    @apply absolute left-full ml-3 glassmorphism w-[195px] h-[220px] flex flex-col rounded-md;
+    @apply absolute left-full ml-3 glassmorphism w-[220px] h-[220px] flex flex-col rounded-md;
+    background-color: #ffffff7a;
 }
 
 .filepicker-label {
     @apply border border-gray-300 py-1.5 px-2 rounded-md shadow-sm text-xs text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 cursor-pointer w-fit;
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 2px -1px black;
 }
 
 .tab-btn {

@@ -8,7 +8,7 @@ import { download } from "../assets"
 import { downloadCanvasToImage, reader } from "../config/helpers"
 import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants"
 import { fadeAnimation, slideAnimation } from "../config/motion"
-import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from "../components"
+import { AIPicker, ColorPicker, Button, FilePicker, Tab } from "../components"
 import ErrorBoundary from "../components/ErrorBoundary"
 
 const Customizer = () => {
@@ -146,12 +146,7 @@ const Customizer = () => {
                         </motion.div>
 
                         <motion.div className="absolute z-10 top-5 right-5" {...fadeAnimation}>
-                            <CustomButton
-                                type="filled"
-                                title="Go Back"
-                                handleClick={() => (state.intro = true)}
-                                customStyles="w-fit px-4 py-2.5 font-bold text-sm"
-                            />
+                            <Button title="Go Back" onClick={() => (state.intro = true)} />
                         </motion.div>
 
                         <motion.div className="filtertabs-container" {...slideAnimation("up")}>
