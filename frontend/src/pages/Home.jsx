@@ -41,9 +41,15 @@ const Home = () => {
                                         letterSpacing: "1px",
                                     }}
                                 >
-                                    Create your unique and exclusive shirt with our brand-new 3D
-                                    customization tool. <strong>Unleash your imagination</strong>{" "}
-                                    and define your own style.
+                                    <p>
+                                        Customize your own exclusive shirt with our innovative 3D
+                                        tool.
+                                    </p>
+                                    <br />
+                                    <p>
+                                        Explore endless possibilities and shape your individual
+                                        style.
+                                    </p>
                                 </p>
 
                                 <Button
