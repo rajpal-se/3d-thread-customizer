@@ -1,11 +1,17 @@
+import { lazy, Suspense } from 'react';
+
 import { motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 
-import CustomizerCanvas from '../canvas/components/CustomizerCanvas';
+import CanvasPreviewFallback from '../canvas/components/CanvasPreviewFallback';
 import CustomizerPanel from '../features/customizer/components/CustomizerPanel';
 import Home from '../features/customizer/components/Home';
 import { fadeAnimation } from '../lib/motion';
 import customizerStore from '../store/customizerStore';
+
+const CustomizerCanvas = lazy(
+    () => import('../canvas/components/CustomizerCanvas'),
+);
 
 function AppShell() {
     const snapshot = useSnapshot(customizerStore);
@@ -40,7 +46,9 @@ function AppShell() {
                             </div>
 
                             <div className="relative h-[28rem] overflow-hidden rounded-[1.4rem] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.22),_rgba(255,255,255,0.03)_62%)] md:h-[34rem]">
-                                <CustomizerCanvas />
+                                <Suspense fallback={<CanvasPreviewFallback />}>
+                                    <CustomizerCanvas />
+                                </Suspense>
 
                                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/18 to-transparent" />
 
