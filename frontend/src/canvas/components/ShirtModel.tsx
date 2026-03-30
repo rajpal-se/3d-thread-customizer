@@ -22,7 +22,7 @@ function ShirtModel() {
     });
 
     return (
-        <group>
+        <group scale={1.3}>
             <mesh
                 castShadow
                 geometry={nodes.T_Shirt_male.geometry}

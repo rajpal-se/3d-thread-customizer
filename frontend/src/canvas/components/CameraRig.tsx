@@ -8,7 +8,7 @@ import type { Group } from 'three';
 
 import customizerStore from '../../store/customizerStore';
 
-const ROTATION_LIMIT = (8 * Math.PI) / 180;
+const ROTATION_LIMIT = (12 * Math.PI) / 180;
 
 function CameraRig({ children }: PropsWithChildren) {
     const group = useRef<Group>(null);
