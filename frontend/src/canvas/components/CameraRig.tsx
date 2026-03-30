@@ -8,6 +8,8 @@ import type { Group } from 'three';
 
 import customizerStore from '../../store/customizerStore';
 
+const ROTATION_LIMIT = (8 * Math.PI) / 180;
+
 function CameraRig({ children }: PropsWithChildren) {
     const group = useRef<Group>(null);
     const snapshot = useSnapshot(customizerStore);
@@ -40,7 +42,11 @@ function CameraRig({ children }: PropsWithChildren) {
 
         easing.dampE(
             group.current.rotation,
-            [state.pointer.y / 10, -state.pointer.x / 5, 0],
+            [
+                state.pointer.y * ROTATION_LIMIT,
+                -state.pointer.x * ROTATION_LIMIT,
+                0,
+            ],
             0.25,
             delta,
         );

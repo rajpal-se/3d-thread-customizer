@@ -1,15 +1,13 @@
 import { Suspense } from 'react';
 
 import { Canvas } from '@react-three/fiber';
-import { Center, Environment, OrbitControls } from '@react-three/drei';
+import { Center, Environment } from '@react-three/drei';
 
 import ErrorBoundary from '../../components/feedback/ErrorBoundary';
 import Backdrop from './Backdrop';
+import CameraRig from './CameraRig';
 import CanvasLoader from './CanvasLoader';
 import ShirtModel from './ShirtModel';
-
-const ROTATION_LIMIT = (12 * Math.PI) / 180;
-const DEFAULT_POLAR_ANGLE = Math.PI / 2;
 
 function CustomizerCanvas() {
     return (
@@ -28,20 +26,12 @@ function CustomizerCanvas() {
 
                     <Backdrop />
 
-                    <Center>
-                        <ShirtModel />
-                    </Center>
+                    <CameraRig>
+                        <Center>
+                            <ShirtModel />
+                        </Center>
+                    </CameraRig>
                 </Suspense>
-
-                <OrbitControls
-                    enablePan={false}
-                    enableZoom={false}
-                    minAzimuthAngle={-ROTATION_LIMIT}
-                    maxAzimuthAngle={ROTATION_LIMIT}
-                    minPolarAngle={DEFAULT_POLAR_ANGLE - ROTATION_LIMIT}
-                    maxPolarAngle={DEFAULT_POLAR_ANGLE + ROTATION_LIMIT}
-                    rotateSpeed={0.9}
-                />
             </Canvas>
         </ErrorBoundary>
     );
