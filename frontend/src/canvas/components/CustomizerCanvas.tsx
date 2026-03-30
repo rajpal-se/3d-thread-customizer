@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber';
-import { Center, ContactShadows, Environment } from '@react-three/drei';
+import { Center, Environment } from '@react-three/drei';
 
+import Backdrop from './Backdrop';
 import CameraRig from './CameraRig';
 import ShirtModel from './ShirtModel';
 
@@ -23,17 +24,11 @@ function CustomizerCanvas() {
             <Environment preset="city" />
 
             <CameraRig>
+                <Backdrop />
+
                 <Center>
                     <ShirtModel />
                 </Center>
-
-                <ContactShadows
-                    position={[0, -1.65, 0]}
-                    opacity={0.45}
-                    scale={7}
-                    blur={2.4}
-                    far={3.8}
-                />
             </CameraRig>
         </Canvas>
     );

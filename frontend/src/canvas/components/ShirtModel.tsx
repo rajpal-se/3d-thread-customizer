@@ -1,9 +1,10 @@
-import { Decal, useGLTF, useTexture } from '@react-three/drei';
+import { Decal, useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { easing } from 'maath';
 import { useSnapshot } from 'valtio';
 
 import customizerStore from '../../store/customizerStore';
+import useShirtTextures from '../hooks/useShirtTextures';
 import type { ShirtGLTFResult } from '../model/shirt.types';
 
 function ShirtModel() {
@@ -11,8 +12,10 @@ function ShirtModel() {
     const { materials, nodes } = useGLTF(
         '/shirt_baked.glb',
     ) as unknown as ShirtGLTFResult;
-    const logoTexture = useTexture(snapshot.logoDecal);
-    const fullTexture = useTexture(snapshot.fullDecal);
+    const { fullTexture, logoTexture } = useShirtTextures({
+        fullDecal: snapshot.fullDecal,
+        logoDecal: snapshot.logoDecal,
+    });
 
     useFrame((_, delta) => {
         easing.dampC(materials.lambert1.color, snapshot.color, 0.25, delta);
