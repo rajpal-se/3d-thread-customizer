@@ -1,8 +1,10 @@
 @import 'tailwindcss';
+@import './tokens.css';
+@import './utilities.css';
 
 :root {
-    color: #171717;
-    background-color: #f8f6f1;
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-page);
     font-family:
         'Segoe UI',
         Inter,
