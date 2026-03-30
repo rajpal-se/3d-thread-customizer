@@ -12,8 +12,16 @@
         "format:check": "prettier --check ."
     },
     "dependencies": {
+        "@react-three/drei": "^10.7.7",
+        "@react-three/fiber": "^9.5.0",
+        "classnames": "^2.5.1",
+        "framer-motion": "^12.38.0",
+        "maath": "^0.10.8",
         "react": "^19.2.4",
-        "react-dom": "^19.2.4"
+        "react-color": "^2.19.3",
+        "react-dom": "^19.2.4",
+        "three": "^0.183.2",
+        "valtio": "^2.3.1"
     },
     "devDependencies": {
         "@eslint/js": "^9.39.4",
