@@ -25,11 +25,8 @@ function ShirtModel() {
         <group>
             <mesh
                 castShadow
-                receiveShadow
                 geometry={nodes.T_Shirt_male.geometry}
                 material={materials.lambert1}
-                scale={1.75}
-                position={[0, -1.55, 0]}
                 dispose={null}
             >
                 {snapshot.isFullTexture ? (

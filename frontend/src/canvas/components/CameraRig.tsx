@@ -16,20 +16,20 @@ function CameraRig({ children }: PropsWithChildren) {
         const isBreakpoint = window.innerWidth <= 1260;
         const isMobile = window.innerWidth <= 600;
 
-        let targetPosition: [number, number, number] = [-0.4, 0, 2];
+        let targetPosition: [number, number, number] = [-0.15, -0.05, 2.55];
 
         if (snapshot.intro) {
             if (isBreakpoint) {
-                targetPosition = [0, 0, 2];
+                targetPosition = [0.05, -0.05, 2.7];
             }
 
             if (isMobile) {
-                targetPosition = [0, 0.2, 2.5];
+                targetPosition = [0, 0.1, 3.05];
             }
         } else if (isMobile) {
-            targetPosition = [0, 0, 2.5];
+            targetPosition = [0, 0, 2.9];
         } else {
-            targetPosition = [0, 0, 2];
+            targetPosition = [0, -0.02, 2.45];
         }
 
         easing.damp3(state.camera.position, targetPosition, 0.25, delta);

@@ -39,7 +39,7 @@ function AppShell() {
                                 </span>
                             </div>
 
-                            <div className="relative min-h-[28rem] overflow-hidden rounded-[1.4rem] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.22),_rgba(255,255,255,0.03)_62%)]">
+                            <div className="relative h-[28rem] overflow-hidden rounded-[1.4rem] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.22),_rgba(255,255,255,0.03)_62%)] md:h-[34rem]">
                                 <CustomizerCanvas />
 
                                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/18 to-transparent" />
