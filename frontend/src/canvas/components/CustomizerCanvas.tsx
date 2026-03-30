@@ -1,8 +1,11 @@
+import { Suspense } from 'react';
+
 import { Canvas } from '@react-three/fiber';
 import { Center, Environment, OrbitControls } from '@react-three/drei';
 
 import ErrorBoundary from '../../components/feedback/ErrorBoundary';
 import Backdrop from './Backdrop';
+import CanvasLoader from './CanvasLoader';
 import ShirtModel from './ShirtModel';
 
 function CustomizerCanvas() {
@@ -16,13 +19,16 @@ function CustomizerCanvas() {
                 className="h-full w-full"
             >
                 <ambientLight intensity={0.5} />
-                <Environment preset="city" />
 
-                <Backdrop />
+                <Suspense fallback={<CanvasLoader />}>
+                    <Environment preset="city" />
 
-                <Center>
-                    <ShirtModel />
-                </Center>
+                    <Backdrop />
+
+                    <Center>
+                        <ShirtModel />
+                    </Center>
+                </Suspense>
 
                 <OrbitControls
                     enablePan={false}
