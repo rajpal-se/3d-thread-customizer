@@ -9,6 +9,7 @@ function CustomizerCanvas() {
     return (
         <ErrorBoundary message="The 3D preview could not be rendered.">
             <Canvas
+                id="customizer-canvas"
                 shadows
                 camera={{ position: [0, 0, 2.2], fov: 25 }}
                 gl={{ preserveDrawingBuffer: true }}

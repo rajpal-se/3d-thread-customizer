@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
 import type { DecalKind, EditorTabName } from '../../../types/customizer';
+import { downloadCanvasImage } from '../../../lib/canvas';
 import {
     applyDecal,
+    resetCustomizerState,
     toggleFullTexture,
     toggleLogoTexture,
 } from '../../../store/customizerActions';
@@ -14,6 +16,7 @@ function useCustomizerControls() {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [fileError, setFileError] = useState('');
     const [isApplyingFile, setIsApplyingFile] = useState(false);
+    const [downloadError, setDownloadError] = useState('');
 
     const handleTabChange = (tab: EditorTabName) => {
         setActiveEditorTab((currentTab) =>
@@ -22,6 +25,8 @@ function useCustomizerControls() {
     };
 
     const handleFileChange = (file: File | null) => {
+        setDownloadError('');
+
         if (!file) {
             setSelectedFile(null);
             setFileError('');
@@ -50,6 +55,7 @@ function useCustomizerControls() {
 
             const imageDataUrl = await readFileAsDataUrl(selectedFile);
             applyDecal(kind, imageDataUrl);
+            setDownloadError('');
         } catch (error) {
             setFileError(
                 error instanceof Error
@@ -61,13 +67,37 @@ function useCustomizerControls() {
         }
     };
 
+    const handleDownload = () => {
+        try {
+            downloadCanvasImage();
+            setDownloadError('');
+        } catch (error) {
+            setDownloadError(
+                error instanceof Error
+                    ? error.message
+                    : 'Unable to download the current preview.',
+            );
+        }
+    };
+
+    const handleReset = () => {
+        resetCustomizerState();
+        setActiveEditorTab('colorpicker');
+        setSelectedFile(null);
+        setFileError('');
+        setDownloadError('');
+    };
+
     return {
         activeEditorTab,
+        downloadError,
         fileError,
         isApplyingFile,
         selectedFile,
         handleApplyDecal,
+        handleDownload,
         handleFileChange,
+        handleReset,
         handleTabChange,
         toggleFullTexture,
         toggleLogoTexture,

@@ -15,11 +15,14 @@ function CustomizerPanel() {
     const snapshot = useSnapshot(customizerStore);
     const {
         activeEditorTab,
+        downloadError,
         fileError,
         isApplyingFile,
         selectedFile,
         handleApplyDecal,
+        handleDownload,
         handleFileChange,
+        handleReset,
         handleTabChange,
         toggleFullTexture,
         toggleLogoTexture,
@@ -57,11 +60,30 @@ function CustomizerPanel() {
                         className="absolute top-4 right-4 z-30 md:top-6 md:right-6"
                         {...fadeAnimation}
                     >
-                        <Button
-                            title="Go Back"
-                            variant="outline"
-                            onClick={exitCustomizer}
-                        />
+                        <div className="flex flex-col items-end gap-3">
+                            <div className="flex flex-wrap items-center justify-end gap-3">
+                                <Button
+                                    title="Reset"
+                                    variant="ghost"
+                                    onClick={handleReset}
+                                />
+                                <Button
+                                    title="Download"
+                                    onClick={handleDownload}
+                                />
+                                <Button
+                                    title="Go Back"
+                                    variant="outline"
+                                    onClick={exitCustomizer}
+                                />
+                            </div>
+
+                            {downloadError ? (
+                                <p className="max-w-xs rounded-xl border border-red-300/70 bg-red-50/90 px-3 py-2 text-right text-xs leading-5 text-red-700 shadow-sm backdrop-blur">
+                                    {downloadError}
+                                </p>
+                            ) : null}
+                        </div>
                     </motion.div>
 
                     <motion.div
