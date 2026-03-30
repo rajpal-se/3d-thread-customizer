@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 
+import Button from '../components/ui/Button';
+import IconTab from '../components/ui/IconTab';
 import {
     DECAL_TYPES,
     EDITOR_TABS,
@@ -125,6 +127,45 @@ function AppShell() {
                         </span>
                         .
                     </motion.p>
+
+                    <motion.div
+                        className="mt-8 space-y-5"
+                        {...headContentAnimation}
+                    >
+                        <div className="flex flex-wrap gap-3">
+                            <Button title="Customize It" />
+                            <Button title="Go Back" variant="outline" />
+                            <Button title="Preview State" variant="ghost" />
+                        </div>
+
+                        <div className="flex flex-wrap items-center gap-3">
+                            {EDITOR_TABS.map((tab) => (
+                                <IconTab
+                                    key={tab.name}
+                                    icon={tab.icon}
+                                    label={tab.label}
+                                    isActive={tab.name === 'colorpicker'}
+                                />
+                            ))}
+
+                            <div className="mx-1 h-10 w-px bg-stone-300" />
+
+                            {FILTER_TABS.map((tab) => (
+                                <IconTab
+                                    key={tab.name}
+                                    icon={tab.icon}
+                                    label={tab.label}
+                                    isFilterTab
+                                    isActive={
+                                        tab.name === DECAL_TYPES.logo.filterTab
+                                            ? snapshot.isLogoTexture
+                                            : snapshot.isFullTexture
+                                    }
+                                    accentColor={snapshot.color}
+                                />
+                            ))}
+                        </div>
+                    </motion.div>
                 </motion.section>
             </div>
         </motion.main>
