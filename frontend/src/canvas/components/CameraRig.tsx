@@ -18,15 +18,17 @@ function CameraRig({ children }: PropsWithChildren) {
         const isBreakpoint = window.innerWidth <= 1260;
         const isMobile = window.innerWidth <= 600;
 
-        let targetPosition: [number, number, number] = [-0.15, -0.05, 2.55];
+        let targetPosition: [number, number, number] = [0, -0.02, 2.45];
 
         if (snapshot.intro) {
+            targetPosition = [0, 0, 2.55];
+
             if (isBreakpoint) {
-                targetPosition = [0.05, -0.05, 2.7];
+                targetPosition = [0, 0, 2.7];
             }
 
             if (isMobile) {
-                targetPosition = [0, 0.1, 3.05];
+                targetPosition = [0, 0.06, 3.05];
             }
         } else if (isMobile) {
             targetPosition = [0, 0, 2.9];
