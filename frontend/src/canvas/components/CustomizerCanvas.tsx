@@ -8,6 +8,9 @@ import Backdrop from './Backdrop';
 import CanvasLoader from './CanvasLoader';
 import ShirtModel from './ShirtModel';
 
+const ROTATION_LIMIT = (12 * Math.PI) / 180;
+const DEFAULT_POLAR_ANGLE = Math.PI / 2;
+
 function CustomizerCanvas() {
     return (
         <ErrorBoundary message="The 3D preview could not be rendered.">
@@ -33,8 +36,10 @@ function CustomizerCanvas() {
                 <OrbitControls
                     enablePan={false}
                     enableZoom={false}
-                    minPolarAngle={0}
-                    maxPolarAngle={Math.PI}
+                    minAzimuthAngle={-ROTATION_LIMIT}
+                    maxAzimuthAngle={ROTATION_LIMIT}
+                    minPolarAngle={DEFAULT_POLAR_ANGLE - ROTATION_LIMIT}
+                    maxPolarAngle={DEFAULT_POLAR_ANGLE + ROTATION_LIMIT}
                     rotateSpeed={0.9}
                 />
             </Canvas>
