@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import { Center, Environment } from '@react-three/drei';
+import { Center, Environment, OrbitControls } from '@react-three/drei';
 
 import ErrorBoundary from '../../components/feedback/ErrorBoundary';
 import Backdrop from './Backdrop';
@@ -22,6 +22,14 @@ function CustomizerCanvas() {
                 <Center>
                     <ShirtModel />
                 </Center>
+
+                <OrbitControls
+                    enablePan={false}
+                    enableZoom={false}
+                    minPolarAngle={0}
+                    maxPolarAngle={Math.PI}
+                    rotateSpeed={0.9}
+                />
             </Canvas>
         </ErrorBoundary>
     );
