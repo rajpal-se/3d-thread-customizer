@@ -1,20 +1,9 @@
 import { motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 
-import Button from '../components/ui/Button';
-import IconTab from '../components/ui/IconTab';
-import {
-    DECAL_TYPES,
-    EDITOR_TABS,
-    FILTER_TABS,
-} from '../features/customizer/config/customizer.constants';
-import {
-    fadeAnimation,
-    headContainerAnimation,
-    headContentAnimation,
-    headTextAnimation,
-    slideAnimation,
-} from '../lib/motion';
+import CustomizerPanel from '../features/customizer/components/CustomizerPanel';
+import Home from '../features/customizer/components/Home';
+import { fadeAnimation } from '../lib/motion';
 import customizerStore from '../store/customizerStore';
 
 function AppShell() {
@@ -22,152 +11,83 @@ function AppShell() {
 
     return (
         <motion.main
-            className="min-h-screen bg-[radial-gradient(circle_at_top,_#f7efe1,_#f8f6f1_55%,_#efe6d4)] px-6 py-10 text-stone-900"
+            className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#342114,_#1f130b_42%,_#120c08)] text-stone-100"
             {...fadeAnimation}
         >
-            <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-6xl items-center justify-center">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,_rgba(249,115,22,0.22),_transparent_25%),radial-gradient(circle_at_80%_18%,_rgba(251,191,36,0.16),_transparent_20%),radial-gradient(circle_at_50%_75%,_rgba(217,78,40,0.16),_transparent_24%)]" />
+
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/8 to-transparent" />
+
+            <div className="relative z-10 flex min-h-screen items-center justify-center px-6 py-8 md:px-10">
                 <motion.section
-                    className="w-full max-w-3xl rounded-[2rem] border border-stone-200/80 bg-white/70 p-8 shadow-[0_20px_60px_rgba(80,56,24,0.12)] backdrop-blur md:p-12"
-                    {...headContainerAnimation}
+                    className="flex w-full max-w-6xl justify-center"
+                    animate={{
+                        x: snapshot.intro ? '18%' : '0%',
+                        scale: snapshot.intro ? 0.94 : 1,
+                    }}
+                    transition={{ duration: 0.5, ease: 'easeInOut' }}
                 >
-                    <motion.div
-                        className="mb-6 inline-flex rounded-full border border-orange-300/70 bg-orange-100/80 px-3 py-1 text-xs font-semibold tracking-[0.2em] text-orange-700 uppercase"
-                        {...slideAnimation('down')}
-                    >
-                        Step 9 Motion Layer
-                    </motion.div>
+                    <div className="relative w-full max-w-[38rem] rounded-[2.4rem] border border-white/12 bg-white/6 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.28)] backdrop-blur md:p-8">
+                        <div className="absolute inset-0 rounded-[2.4rem] bg-[linear-gradient(160deg,rgba(255,255,255,0.12),rgba(255,255,255,0.04))]" />
 
-                    <motion.h1
-                        className="max-w-2xl text-4xl font-black tracking-tight text-stone-950 md:text-6xl"
-                        {...headTextAnimation}
-                    >
-                        The typed customizer configuration layer is now in
-                        place.
-                    </motion.h1>
-
-                    <motion.p
-                        className="mt-6 max-w-2xl text-base leading-7 text-stone-600 md:text-lg"
-                        {...headContentAnimation}
-                    >
-                        The new frontend now has typed editor tab definitions,
-                        filter tab definitions, and decal-to-state mappings,
-                        based on the legacy app but without the AI branch.
-                    </motion.p>
-
-                    <motion.div
-                        className="mt-10 grid gap-4 md:grid-cols-3"
-                        {...headContentAnimation}
-                    >
-                        <motion.article
-                            className="rounded-2xl border border-stone-200 bg-stone-50 p-4"
-                            {...slideAnimation('left')}
-                        >
-                            <p className="text-sm font-semibold text-stone-900">
-                                Editor Tabs
-                            </p>
-                            <p className="mt-2 text-sm leading-6 text-stone-600">
-                                The config currently exposes
-                                <span className="mx-1 font-semibold text-stone-900">
-                                    {EDITOR_TABS.length}
+                        <div className="relative overflow-hidden rounded-[1.8rem] border border-white/12 bg-[linear-gradient(160deg,rgba(255,255,255,0.18),rgba(255,255,255,0.04))] p-6 md:p-8">
+                            <div className="mb-5 flex items-center justify-between text-xs font-semibold tracking-[0.24em] text-stone-200/75 uppercase">
+                                <span>Live Preview</span>
+                                <span>
+                                    {snapshot.intro ? 'Intro' : 'Editing'}
                                 </span>
-                                editor tabs for color and file flows.
-                            </p>
-                        </motion.article>
+                            </div>
 
-                        <motion.article
-                            className="rounded-2xl border border-stone-200 bg-stone-50 p-4"
-                            {...fadeAnimation}
-                        >
-                            <p className="text-sm font-semibold text-stone-900">
-                                Filter Tabs
-                            </p>
-                            <p className="mt-2 text-sm leading-6 text-stone-600">
-                                The filter layer keeps
-                                <span className="mx-1 inline-flex rounded-md border border-stone-300 bg-white px-2 py-0.5 font-mono text-xs text-stone-900">
-                                    {FILTER_TABS.map((tab) => tab.name).join(
-                                        ', ',
-                                    )}
-                                </span>
-                                aligned with the legacy texture toggles.
-                            </p>
-                        </motion.article>
+                            <div className="relative flex min-h-[28rem] items-center justify-center rounded-[1.4rem] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.22),_rgba(255,255,255,0.03)_62%)] p-6">
+                                <div className="absolute inset-x-[15%] bottom-8 h-10 rounded-full bg-black/20 blur-2xl" />
 
-                        <motion.article
-                            className="rounded-2xl border border-stone-200 bg-stone-50 p-4"
-                            {...slideAnimation('right')}
-                        >
-                            <p className="text-sm font-semibold text-stone-900">
-                                Decal Mapping
-                            </p>
-                            <p className="mt-2 text-sm leading-6 text-stone-600">
-                                Logo decals target
-                                <span className="mx-1 inline-flex rounded-md border border-stone-300 bg-white px-2 py-0.5 font-mono text-xs text-stone-900">
-                                    {DECAL_TYPES.logo.stateProperty}
-                                </span>
-                                while full artwork targets
-                                <span className="mx-1 inline-flex rounded-md border border-stone-300 bg-white px-2 py-0.5 font-mono text-xs text-stone-900">
-                                    {DECAL_TYPES.full.stateProperty}
-                                </span>
-                                with stable filter links.
-                            </p>
-                        </motion.article>
-                    </motion.div>
+                                <motion.div
+                                    className="relative h-[24rem] w-[18rem] rounded-[4rem_4rem_2rem_2rem] border border-black/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_24px_50px_rgba(0,0,0,0.18)]"
+                                    animate={{
+                                        backgroundColor: snapshot.color,
+                                        rotate: snapshot.intro ? -6 : 0,
+                                        scale: snapshot.intro ? 0.92 : 1,
+                                    }}
+                                    transition={{
+                                        duration: 0.45,
+                                        ease: 'easeInOut',
+                                    }}
+                                    style={{
+                                        backgroundImage: snapshot.isFullTexture
+                                            ? `url(${snapshot.fullDecal})`
+                                            : undefined,
+                                        backgroundPosition: 'center',
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundSize: snapshot.isFullTexture
+                                            ? 'cover'
+                                            : undefined,
+                                    }}
+                                >
+                                    <div className="absolute top-0 left-1/2 h-12 w-24 -translate-x-1/2 rounded-b-3xl bg-[#1a120d]/14" />
 
-                    <motion.p
-                        className="mt-6 text-sm leading-6 text-stone-500"
-                        {...fadeAnimation}
-                    >
-                        Current store defaults remain intact: intro
-                        <span className="mx-1 font-semibold text-stone-900">
-                            {String(snapshot.intro)}
-                        </span>
-                        and base color
-                        <span className="mx-1 inline-flex rounded-md border border-stone-300 bg-white px-2 py-0.5 font-mono text-xs text-stone-900">
-                            {snapshot.color}
-                        </span>
-                        .
-                    </motion.p>
+                                    <div className="absolute top-12 left-1/2 h-8 w-34 -translate-x-1/2 rounded-full border border-black/10 bg-white/12 blur-[1px]" />
 
-                    <motion.div
-                        className="mt-8 space-y-5"
-                        {...headContentAnimation}
-                    >
-                        <div className="flex flex-wrap gap-3">
-                            <Button title="Customize It" />
-                            <Button title="Go Back" variant="outline" />
-                            <Button title="Preview State" variant="ghost" />
+                                    <div className="absolute inset-y-16 left-0 w-10 rounded-r-full bg-black/10" />
+                                    <div className="absolute inset-y-16 right-0 w-10 rounded-l-full bg-black/10" />
+
+                                    {snapshot.isLogoTexture ? (
+                                        <motion.img
+                                            src={snapshot.logoDecal}
+                                            alt="Logo decal preview"
+                                            className="absolute top-[30%] left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl object-contain"
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            initial={{ opacity: 0, scale: 0.9 }}
+                                        />
+                                    ) : null}
+                                </motion.div>
+                            </div>
                         </div>
-
-                        <div className="flex flex-wrap items-center gap-3">
-                            {EDITOR_TABS.map((tab) => (
-                                <IconTab
-                                    key={tab.name}
-                                    icon={tab.icon}
-                                    label={tab.label}
-                                    isActive={tab.name === 'colorpicker'}
-                                />
-                            ))}
-
-                            <div className="mx-1 h-10 w-px bg-stone-300" />
-
-                            {FILTER_TABS.map((tab) => (
-                                <IconTab
-                                    key={tab.name}
-                                    icon={tab.icon}
-                                    label={tab.label}
-                                    isFilterTab
-                                    isActive={
-                                        tab.name === DECAL_TYPES.logo.filterTab
-                                            ? snapshot.isLogoTexture
-                                            : snapshot.isFullTexture
-                                    }
-                                    accentColor={snapshot.color}
-                                />
-                            ))}
-                        </div>
-                    </motion.div>
+                    </div>
                 </motion.section>
             </div>
+
+            <Home />
+            <CustomizerPanel />
         </motion.main>
     );
 }
