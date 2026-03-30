@@ -70,6 +70,27 @@ export const fadeAnimation: MotionAnimationConfig = {
     },
 };
 
+export const scaleAnimation: MotionAnimationConfig = {
+    initial: {
+        scale: 0.88,
+        opacity: 0,
+    },
+    animate: {
+        scale: 1,
+        opacity: 1,
+    },
+    exit: {
+        scale: 0.94,
+        opacity: 0,
+    },
+    transition: {
+        type: 'spring',
+        damping: 14,
+        stiffness: 120,
+        duration: 0.35,
+    },
+};
+
 export const headTextAnimation: MotionAnimationConfig = {
     initial: {
         x: 100,

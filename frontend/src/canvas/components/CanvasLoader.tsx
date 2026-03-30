@@ -1,4 +1,7 @@
 import { Html, useProgress } from '@react-three/drei';
+import { motion } from 'framer-motion';
+
+import { scaleAnimation } from '../../lib/motion';
 
 function CanvasLoader() {
     const { progress } = useProgress();
@@ -6,7 +9,10 @@ function CanvasLoader() {
 
     return (
         <Html center>
-            <div className="flex min-w-56 flex-col items-center rounded-[1.6rem] border border-white/15 bg-black/35 px-5 py-4 text-center text-stone-100 shadow-[0_18px_45px_rgba(0,0,0,0.26)] backdrop-blur-md">
+            <motion.div
+                className="flex min-w-56 flex-col items-center rounded-[1.6rem] border border-white/15 bg-black/35 px-5 py-4 text-center text-stone-100 shadow-[0_18px_45px_rgba(0,0,0,0.26)] backdrop-blur-md"
+                {...scaleAnimation}
+            >
                 <p className="text-[11px] font-semibold tracking-[0.24em] text-stone-200/75 uppercase">
                     Loading Preview
                 </p>
@@ -25,7 +31,7 @@ function CanvasLoader() {
                 <p className="mt-1 text-xs leading-5 text-stone-200/75">
                     {roundedProgress}% loaded
                 </p>
-            </div>
+            </motion.div>
         </Html>
     );
 }
