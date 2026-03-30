@@ -22,6 +22,7 @@ function CustomizerPanel() {
         handleApplyDecal,
         handleDownload,
         handleFileChange,
+        handleRemoveDecal,
         handleReset,
         handleTabChange,
         toggleFullTexture,
@@ -48,9 +49,12 @@ function CustomizerPanel() {
                                 <FilePickerPanel
                                     file={selectedFile}
                                     errorMessage={fileError}
+                                    isFullApplied={snapshot.isFullTexture}
                                     isApplying={isApplyingFile}
+                                    isLogoApplied={snapshot.isLogoTexture}
                                     onApply={handleApplyDecal}
                                     onFileChange={handleFileChange}
+                                    onRemove={handleRemoveDecal}
                                 />
                             )}
                         </div>

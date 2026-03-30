@@ -4,6 +4,8 @@ import type { DecalKind, EditorTabName } from '../../../types/customizer';
 import { downloadCanvasImage } from '../../../lib/canvas';
 import {
     applyDecal,
+    removeFullDecal,
+    removeLogoDecal,
     resetCustomizerState,
     toggleFullTexture,
     toggleLogoTexture,
@@ -80,6 +82,17 @@ function useCustomizerControls() {
         }
     };
 
+    const handleRemoveDecal = (kind: DecalKind) => {
+        if (kind === 'logo') {
+            removeLogoDecal();
+        } else {
+            removeFullDecal();
+        }
+
+        setFileError('');
+        setDownloadError('');
+    };
+
     const handleReset = () => {
         resetCustomizerState();
         setActiveEditorTab('colorpicker');
@@ -97,6 +110,7 @@ function useCustomizerControls() {
         handleApplyDecal,
         handleDownload,
         handleFileChange,
+        handleRemoveDecal,
         handleReset,
         handleTabChange,
         toggleFullTexture,

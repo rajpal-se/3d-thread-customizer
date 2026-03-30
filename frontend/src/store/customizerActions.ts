@@ -51,6 +51,14 @@ export const applyDecal = (kind: DecalKind, value: string): void => {
     customizerStore.isFullTexture = true;
 };
 
+export const removeLogoDecal = (): void => {
+    customizerStore.isLogoTexture = false;
+};
+
+export const removeFullDecal = (): void => {
+    customizerStore.isFullTexture = false;
+};
+
 export const resetCustomizerState = (): void => {
     Object.assign(customizerStore, initialCustomizerState);
 };

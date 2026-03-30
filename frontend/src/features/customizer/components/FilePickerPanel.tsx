@@ -6,24 +6,30 @@ import type { DecalKind } from '../../../types/customizer';
 interface FilePickerPanelProps {
     file: File | null;
     errorMessage: string;
+    isFullApplied: boolean;
     isApplying: boolean;
+    isLogoApplied: boolean;
     onApply: (kind: DecalKind) => void | Promise<void>;
     onFileChange: (file: File | null) => void;
+    onRemove: (kind: DecalKind) => void;
 }
 
 function FilePickerPanel({
     errorMessage,
     file,
+    isFullApplied,
     isApplying,
+    isLogoApplied,
     onApply,
     onFileChange,
+    onRemove,
 }: FilePickerPanelProps) {
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         onFileChange(event.target.files?.[0] ?? null);
     };
 
     return (
-        <div className="absolute left-full ml-3 flex h-[220px] w-[240px] flex-col rounded-2xl border border-white/50 bg-white/75 p-3 shadow-[0_16px_40px_rgba(31,38,135,0.08)] backdrop-blur">
+        <div className="absolute left-full ml-3 flex h-[268px] w-[240px] flex-col rounded-2xl border border-white/50 bg-white/75 p-3 shadow-[0_16px_40px_rgba(31,38,135,0.08)] backdrop-blur">
             <div className="flex-1 rounded-xl border border-dashed border-stone-300 bg-stone-50 p-3">
                 <input
                     id="file-upload"
@@ -68,6 +74,23 @@ function FilePickerPanel({
                     disabled={!file || isApplying}
                     variant="outline"
                     onClick={() => onApply('full')}
+                />
+            </div>
+
+            <div className="mt-2 grid grid-cols-2 gap-3">
+                <Button
+                    title="Remove Logo"
+                    className="px-3"
+                    disabled={!isLogoApplied}
+                    variant="ghost"
+                    onClick={() => onRemove('logo')}
+                />
+                <Button
+                    title="Remove Full"
+                    className="px-3"
+                    disabled={!isFullApplied}
+                    variant="ghost"
+                    onClick={() => onRemove('full')}
                 />
             </div>
         </div>
