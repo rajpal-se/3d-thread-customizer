@@ -29,7 +29,7 @@ function Button({
         <button
             type={type}
             className={classNames(
-                'inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold transition duration-200',
+                'inline-flex cursor-pointer items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold transition duration-200',
                 variantClasses[variant],
                 className,
             )}

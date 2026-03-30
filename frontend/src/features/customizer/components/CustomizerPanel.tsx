@@ -68,7 +68,8 @@ function CustomizerPanel() {
                             <div className="flex flex-wrap items-center justify-end gap-3">
                                 <Button
                                     title="Reset"
-                                    variant="ghost"
+                                    variant="outline"
+                                    className="border-amber-200/45 bg-stone-950/35 text-stone-50 shadow-[0_12px_28px_rgba(0,0,0,0.22)] hover:bg-stone-900/55 hover:text-white focus-visible:ring-amber-200"
                                     onClick={handleReset}
                                 />
                                 <Button
