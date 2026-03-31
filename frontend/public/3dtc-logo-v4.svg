@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <!-- 3D Thread Customizer — Transparent bg, thick strokes, gold gradients -->
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5D07A"/>
+      <stop offset="50%" stop-color="#C9942A"/>
+      <stop offset="100%" stop-color="#A07010"/>
+    </linearGradient>
+    <linearGradient id="gold2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE090"/>
+      <stop offset="100%" stop-color="#B8800A"/>
+    </linearGradient>
+    <linearGradient id="spool-body" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5E10"/>
+      <stop offset="30%" stop-color="#C9942A"/>
+      <stop offset="62%" stop-color="#F5D07A"/>
+      <stop offset="100%" stop-color="#9A6A18"/>
+    </linearGradient>
+    <linearGradient id="spool-flange" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5D07A"/>
+      <stop offset="100%" stop-color="#A07010"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer badge rings (transparent fill) -->
+  <circle cx="250" cy="232" r="178" fill="none" stroke="url(#gold)" stroke-width="8"/>
+  <circle cx="250" cy="232" r="164" fill="none" stroke="#C9942A" stroke-width="2" opacity="0.6"/>
+
+  <!-- 12 thick tick marks -->
+  <g stroke="url(#gold)" stroke-width="6" stroke-linecap="round">
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(0,250,232)"/>
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(30,250,232)"/>
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(60,250,232)"/>
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(90,250,232)"/>
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(120,250,232)"/>
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(150,250,232)"/>
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(180,250,232)"/>
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(210,250,232)"/>
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(240,250,232)"/>
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(270,250,232)"/>
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(300,250,232)"/>
+    <line x1="250" y1="54" x2="250" y2="70" transform="rotate(330,250,232)"/>
+  </g>
+
+  <!-- Spool bottom flange -->
+  <path d="M152,300 A98,21 0 0,0 348,300 L348,318 A98,21 0 0,1 152,318 Z" fill="#7A5010"/>
+  <ellipse cx="250" cy="300" rx="98" ry="21" fill="url(#spool-flange)"/>
+  <ellipse cx="250" cy="300" rx="98" ry="21" fill="none" stroke="#8B5E10" stroke-width="4"/>
+  <path d="M152,300 A98,21 0 0,0 348,300 L348,318 A98,21 0 0,1 152,318 Z" fill="none" stroke="#8B5E10" stroke-width="4"/>
+  <ellipse cx="250" cy="300" rx="72" ry="15" fill="none" stroke="#A07010" stroke-width="3"/>
+  <ellipse cx="250" cy="300" rx="22" ry="7" fill="none" stroke="#C9942A" stroke-width="4"/>
+
+  <!-- Spool body -->
+  <rect x="174" y="168" width="152" height="134" fill="url(#spool-body)"/>
+  <rect x="174" y="168" width="24" height="134" fill="#6B4508" opacity="0.75"/>
+  <rect x="302" y="168" width="24" height="134" fill="#6B4508" opacity="0.75"/>
+  <rect x="232" y="168" width="32" height="134" fill="#F5D07A" opacity="0.2"/>
+
+  <!-- Thread wrap lines -->
+  <g stroke="#5A3A08" stroke-width="4">
+    <line x1="174" y1="191" x2="326" y2="191"/>
+    <line x1="174" y1="214" x2="326" y2="214"/>
+    <line x1="174" y1="237" x2="326" y2="237"/>
+    <line x1="174" y1="260" x2="326" y2="260"/>
+    <line x1="174" y1="283" x2="326" y2="283"/>
+  </g>
+  <g stroke="#F5D07A" stroke-width="1.2" opacity="0.3">
+    <line x1="174" y1="202" x2="326" y2="202"/>
+    <line x1="174" y1="225" x2="326" y2="225"/>
+    <line x1="174" y1="248" x2="326" y2="248"/>
+    <line x1="174" y1="271" x2="326" y2="271"/>
+  </g>
+  <line x1="174" y1="168" x2="174" y2="302" stroke="#8B5E10" stroke-width="5" stroke-linecap="round"/>
+  <line x1="326" y1="168" x2="326" y2="302" stroke="#8B5E10" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Spool top flange -->
+  <ellipse cx="250" cy="168" rx="98" ry="21" fill="url(#spool-flange)"/>
+  <ellipse cx="250" cy="168" rx="98" ry="21" fill="none" stroke="#8B5E10" stroke-width="4"/>
+  <ellipse cx="250" cy="168" rx="72" ry="15" fill="none" stroke="#A07010" stroke-width="3"/>
+  <ellipse cx="250" cy="168" rx="22" ry="7" fill="none" stroke="#C9942A" stroke-width="4"/>
+
+  <!-- Needle -->
+  <g transform="translate(318,120) rotate(-35)">
+    <path d="M-9,0 L-9,62 Q0,76 9,62 L9,0 Q0,-13 -9,0 Z" fill="url(#gold2)"/>
+    <path d="M-9,0 L-9,62 Q0,76 9,62 L9,0 Q0,-13 -9,0 Z" fill="none" stroke="#8B5E10" stroke-width="3.5"/>
+    <ellipse cx="0" cy="14" rx="5" ry="3.5" fill="none" stroke="#8B5E10" stroke-width="3"/>
+    <line x1="-4" y1="30" x2="-4" y2="58" stroke="#FFE090" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+  </g>
+
+  <!-- Thread from needle to spool -->
+  <path d="M309,155 C296,162 280,167 268,170"
+        fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Star ornaments -->
+  <polygon points="178,232 181,223 189,220 181,217 178,208 175,217 167,220 175,223"
+           fill="url(#gold)" stroke="#8B5E10" stroke-width="1.5"/>
+  <polygon points="322,232 325,223 333,220 325,217 322,208 319,217 311,220 319,223"
+           fill="url(#gold)" stroke="#8B5E10" stroke-width="1.5"/>
+
+  <!-- Ribbon banner (outline only) -->
+  <path d="M68,385 L86,368 L414,368 L432,385 L414,402 L86,402 Z"
+        fill="none" stroke="url(#gold)" stroke-width="5" stroke-linejoin="round"/>
+  <line x1="86" y1="368" x2="74" y2="410" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="414" y1="368" x2="426" y2="410" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="74" y1="410" x2="86" y2="402" stroke="url(#gold)" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <line x1="426" y1="410" x2="414" y2="402" stroke="url(#gold)" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Banner text -->
+  <text x="250" y="390"
+        text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="18" font-weight="700"
+        fill="url(#gold)" letter-spacing="5">3D THREAD CUSTOMIZER</text>
+
+  <!-- Tagline -->
+  <text x="250" y="432"
+        text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="10" fill="#C9942A" letter-spacing="5">WEAR YOUR IMAGINATION</text>
+  <line x1="105" y1="429" x2="164" y2="429" stroke="#C9942A" stroke-width="1.5" opacity="0.7"/>
+  <line x1="336" y1="429" x2="395" y2="429" stroke="#C9942A" stroke-width="1.5" opacity="0.7"/>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 450" width="400" height="450">
+  <!--
+    3D Thread Customizer — Logo v2
+    Single color: #E8562A (brand orange)
+    Transparent background — works on any shirt color
+  -->
+
+  <!-- Badge rings -->
+  <circle cx="200" cy="196" r="156" fill="none" stroke="#E8562A" stroke-width="2"/>
+  <circle cx="200" cy="196" r="144" fill="none" stroke="#E8562A" stroke-width="0.7" opacity="0.45"/>
+
+  <!-- Top flange (full ellipse — top face visible) -->
+  <ellipse cx="200" cy="114" rx="70" ry="15" fill="none" stroke="#E8562A" stroke-width="2.5"/>
+  <!-- Inner flange hint -->
+  <ellipse cx="200" cy="114" rx="54" ry="10" fill="none" stroke="#E8562A" stroke-width="0.7" opacity="0.4"/>
+
+  <!-- Body side edges -->
+  <line x1="130" y1="114" x2="130" y2="278" stroke="#E8562A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="270" y1="114" x2="270" y2="278" stroke="#E8562A" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Thread wrap arcs (front face, sweep=0) -->
+  <path d="M130,136 A70,14 0 0,0 270,136" fill="none" stroke="#E8562A" stroke-width="1.4"/>
+  <path d="M130,158 A70,14 0 0,0 270,158" fill="none" stroke="#E8562A" stroke-width="1.4"/>
+  <path d="M130,180 A70,14 0 0,0 270,180" fill="none" stroke="#E8562A" stroke-width="1.4"/>
+  <path d="M130,202 A70,14 0 0,0 270,202" fill="none" stroke="#E8562A" stroke-width="1.4"/>
+  <path d="M130,224 A70,14 0 0,0 270,224" fill="none" stroke="#E8562A" stroke-width="1.4"/>
+  <path d="M130,246 A70,14 0 0,0 270,246" fill="none" stroke="#E8562A" stroke-width="1.4"/>
+  <path d="M130,268 A70,14 0 0,0 270,268" fill="none" stroke="#E8562A" stroke-width="1.4"/>
+
+  <!-- Bottom flange (front arc) -->
+  <path d="M130,278 A70,15 0 0,0 270,278" fill="none" stroke="#E8562A" stroke-width="2.5"/>
+  <path d="M124,278 A76,17 0 0,0 276,278" fill="none" stroke="#E8562A" stroke-width="1" opacity="0.45"/>
+
+  <!-- Loose thread unspooling -->
+  <path d="M270,148 C296,128 308,105 324,86 C336,71 348,78 342,94"
+        fill="none" stroke="#E8562A" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- Thread end curl -->
+  <path d="M342,94 C338,102 332,108 326,102 C320,96 328,88 334,92"
+        fill="none" stroke="#E8562A" stroke-width="1.4" stroke-linecap="round"/>
+
+  <!-- Needle (upper right, rotated ~40°) -->
+  <g transform="translate(304,72) rotate(40)">
+    <path d="M-4.5,-4 L-4.5,34 Q0,42 4.5,34 L4.5,-4 Q0,-8 -4.5,-4 Z"
+          fill="none" stroke="#E8562A" stroke-width="1.5"/>
+    <ellipse cx="0" cy="6" rx="3" ry="2" fill="none" stroke="#E8562A" stroke-width="1.2"/>
+  </g>
+
+  <!-- Divider ornament -->
+  <line x1="154" y1="375" x2="246" y2="375" stroke="#E8562A" stroke-width="0.8" opacity="0.5"/>
+  <polygon points="200,369 203,375 200,381 197,375" fill="#E8562A" opacity="0.6"/>
+
+  <!-- Wordmark -->
+  <text x="200" y="404"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="22" font-weight="700"
+        fill="#E8562A" letter-spacing="5">3D THREAD</text>
+
+  <text x="200" y="426"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="10.5"
+        fill="#E8562A" letter-spacing="7" opacity="0.8">CUSTOMIZER</text>
+
+</svg>

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <!--
+    3D Thread Customizer — Default Logo
+    Color: Amber/Gold (#EF9F27 main, #BA7517 dark accent)
+    Background: Transparent — works on any shirt color
+    Designed for embroidery / print on fabric
+  -->
+
+  <defs>
+    <path id="topArc" d="M 88,190 A 138,138 0 0,1 412,190"/>
+    <path id="bottomArc" d="M 88,310 A 138,138 0 0,0 412,310"/>
+  </defs>
+
+  <!-- ═══ BADGE RINGS ═══ -->
+  <!-- Outer subtle ring -->
+  <circle cx="250" cy="250" r="159" fill="none" stroke="#BA7517" stroke-width="1" opacity="0.45"/>
+  <!-- Dashed decorative ring -->
+  <circle cx="250" cy="250" r="150" fill="none" stroke="#EF9F27" stroke-width="1.3" stroke-dasharray="5.5 4.5"/>
+  <!-- Inner solid ring -->
+  <circle cx="250" cy="250" r="140" fill="none" stroke="#BA7517" stroke-width="2"/>
+
+  <!-- ═══ TICK MARKS ═══ (8 diagonal compass positions) -->
+  <g stroke="#BA7517" stroke-width="2.2" stroke-linecap="round" opacity="0.85">
+    <line x1="250" y1="91" x2="250" y2="100" transform="rotate(30, 250, 250)"/>
+    <line x1="250" y1="91" x2="250" y2="100" transform="rotate(60, 250, 250)"/>
+    <line x1="250" y1="91" x2="250" y2="100" transform="rotate(120, 250, 250)"/>
+    <line x1="250" y1="91" x2="250" y2="100" transform="rotate(150, 250, 250)"/>
+    <line x1="250" y1="91" x2="250" y2="100" transform="rotate(210, 250, 250)"/>
+    <line x1="250" y1="91" x2="250" y2="100" transform="rotate(240, 250, 250)"/>
+    <line x1="250" y1="91" x2="250" y2="100" transform="rotate(300, 250, 250)"/>
+    <line x1="250" y1="91" x2="250" y2="100" transform="rotate(330, 250, 250)"/>
+  </g>
+
+  <!-- ═══ CARDINAL DIAMONDS ═══ -->
+  <polygon points="250,84 257,91 250,98 243,91"  fill="#EF9F27"/>
+  <polygon points="250,402 257,409 250,416 243,409" fill="#EF9F27"/>
+  <polygon points="84,243 91,250 84,257 77,250"   fill="#EF9F27"/>
+  <polygon points="409,243 416,250 409,257 402,250" fill="#EF9F27"/>
+
+  <!-- ═══ ARC TEXT ═══ -->
+  <text font-size="13" font-weight="700" fill="#EF9F27" letter-spacing="9"
+        font-family="Georgia, 'Times New Roman', serif">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">3D THREAD</textPath>
+  </text>
+  <text font-size="11" fill="#BA7517" letter-spacing="7"
+        font-family="Georgia, 'Times New Roman', serif">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">CUSTOMIZER</textPath>
+  </text>
+
+  <!-- ═══ THREAD STAR: 3 interlocked flat rhombuses ═══ -->
+  <!-- Each rhombus spans 150px wide × 74px tall, crossing at center -->
+  <!-- The 3 rhombuses at 0°, 60°, 120° form a 6-pointed star (represents 3 crossing threads) -->
+  <g fill="none" stroke="#EF9F27" stroke-width="2.3" stroke-linejoin="round">
+    <polygon points="175,250 250,213 325,250 250,287"/>
+    <polygon points="175,250 250,213 325,250 250,287" transform="rotate(60, 250, 250)"/>
+    <polygon points="175,250 250,213 325,250 250,287" transform="rotate(120, 250, 250)"/>
+  </g>
+
+  <!-- Inner hexagon (formed by inner tips of all 3 rhombuses) — subtle guide -->
+  <polygon points="250,213 285,231 285,269 250,287 215,269 215,231"
+           fill="none" stroke="#BA7517" stroke-width="0.8" opacity="0.35"/>
+
+  <!-- Subtle fill for depth (3% opacity) -->
+  <g opacity="0.04" fill="#EF9F27">
+    <polygon points="175,250 250,213 325,250 250,287"/>
+    <polygon points="175,250 250,213 325,250 250,287" transform="rotate(60, 250, 250)"/>
+    <polygon points="175,250 250,213 325,250 250,287" transform="rotate(120, 250, 250)"/>
+  </g>
+
+  <!-- ═══ CENTER ═══ -->
+  <circle cx="250" cy="250" r="15" fill="none" stroke="#EF9F27" stroke-width="1.5" opacity="0.65"/>
+  <circle cx="250" cy="250" r="6"  fill="#EF9F27"/>
+
+  <!-- ═══ OUTER STAR TIP DOTS ═══ (hexagonal arrangement, r≈75) -->
+  <circle cx="175" cy="250" r="4" fill="#EF9F27"/>
+  <circle cx="325" cy="250" r="4" fill="#EF9F27"/>
+  <circle cx="213" cy="186" r="4" fill="#EF9F27"/>
+  <circle cx="288" cy="314" r="4" fill="#EF9F27"/>
+  <circle cx="288" cy="186" r="4" fill="#EF9F27"/>
+  <circle cx="213" cy="314" r="4" fill="#EF9F27"/>
+
+  <!-- ═══ WORDMARK ═══ -->
+  <line x1="218" y1="440" x2="282" y2="440" stroke="#EF9F27" stroke-width="0.8" opacity="0.3"/>
+  <circle cx="250" cy="440" r="2.5" fill="#EF9F27" opacity="0.45"/>
+
+  <text x="250" y="466" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="20" font-weight="700"
+        fill="#EF9F27" letter-spacing="5">3D THREAD</text>
+
+  <text x="250" y="487" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="10" fill="#BA7517" letter-spacing="7">CUSTOMIZER</text>
+
+</svg>

@@ -7,8 +7,8 @@ export const initialCustomizerState: CustomizerState = {
     color: '#D94E28',
     isLogoTexture: true,
     isFullTexture: false,
-    logoDecal: '/logo.png',
-    fullDecal: '/logo.png',
+    logoDecal: '/3dtc-logo-v0.png',
+    fullDecal: '/3dtc-logo-v0.png',
 };
 
 const customizerStore = proxy<CustomizerState>({

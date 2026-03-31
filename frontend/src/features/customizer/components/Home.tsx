@@ -26,7 +26,7 @@ function Home() {
                         {...slideAnimation('down')}
                     >
                         <img
-                            src="/logo.png"
+                            src="/3dtc-logo-v0.png"
                             alt="3D Thread Customizer logo"
                             className="h-16 w-16 object-contain md:h-20 md:w-20"
                         />
